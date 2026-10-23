@@ -65,7 +65,7 @@ class HeliosPanelFileView(HomeAssistantView):
         if name not in self.FILES:
             return web.Response(status=404)
         path = Path(__file__).parent / "panel" / name  # built only from the allowlisted name, never from the URL text
-        return web.FileResponse(path, headers={"Content-Type": "text/javascript; charset=utf-8", "Cache-Control": "no-cache"})
+        return web.FileResponse(path, headers={"Content-Type": "text/javascript; charset=utf-8", "Cache-Control": "no-store, no-cache, must-revalidate"})
 
 
 class HeliosAppearanceView(HomeAssistantView):
